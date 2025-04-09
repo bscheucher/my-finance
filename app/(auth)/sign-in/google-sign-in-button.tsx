@@ -6,7 +6,7 @@ export default function GoogleLoginButton() {
   return (
     <button
       onClick={() => signIn("google")}
-      className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg flex items-center justify-center gap-2"
+      className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg flex items-center justify-center gap-2"
     >
       <svg
         className="w-5 h-5"

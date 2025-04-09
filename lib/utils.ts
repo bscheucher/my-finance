@@ -6,7 +6,6 @@ export function cn(...inputs: ClassValue[]) {
   }
 
 // Format Errors
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function formatError(error: any): string {
     if (error.name === "ZodError") {
       // Handle Zod error

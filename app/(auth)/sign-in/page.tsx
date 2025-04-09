@@ -10,7 +10,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card-auth";
 import CredentialsSignInForm from "./credentials-signin-form";
 import { APP_NAME } from "@/lib/constants";
 import GoogleLoginButton from "./google-sign-in-button";
