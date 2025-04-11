@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 export const authConfig = {
   providers: [], // Required by NextAuthConfig type
   callbacks: {
-    authorized({ request, auth }: any) {
+    authorized({ request, auth }) {
       // Array of regex patterns of paths we want to protect
       const protectedPaths = [/\/dashboard/];
 
@@ -12,7 +12,12 @@ export const authConfig = {
       const { pathname } = request.nextUrl;
 
       // Check if user is not authenticated and accessing a protected path
-      if (!auth && protectedPaths.some((p) => p.test(pathname))) return false;
+      if (!auth && protectedPaths.some((p) => p.test(pathname))) {
+        // Create sign-in URL with callbackUrl to redirect back after sign-in
+        const signInUrl = new URL("/sign-in", request.url);
+        signInUrl.searchParams.set("callbackUrl", pathname);
+        return NextResponse.redirect(signInUrl);
+      }
 
       // Check for session cart cookie
       if (!request.cookies.get("sessionCartId")) {
